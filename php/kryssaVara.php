@@ -1,10 +1,12 @@
 <?php
 declare (strict_types=1);
 
-function connectDB():PDO {
+// läs in gemensamma funktioner
 
-}
+// läs och kontrollera indata
 
-function skickaJSON($data, int $status=200):never {
+// koppla mot db
 
-}
+//  toggla checked-värdet
+
+// skicka svar
