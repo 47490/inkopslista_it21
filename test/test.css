@@ -1,0 +1,8 @@
+.ok{
+    background-color: greenyellow;
+    color:blueviolet;
+}
+.error {
+    background-color: red;
+    color: darkred;
+}
