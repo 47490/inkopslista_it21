@@ -10,4 +10,3 @@ try{
     echo "</p>";
 }
 
-exit;
