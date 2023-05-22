@@ -1,0 +1,50 @@
+#AddButton{
+    background-color:#dae8fc;
+    position:relative;
+    width: 30%;
+    height:100%;
+    border-style: solid;
+    border-color: #91add2;
+    border-radius: 10px;
+    text-align: center;
+    font-size:300%;
+    height: 10%;    
+}
+#AddButton:active {
+    transform: translateY(2px);
+}
+#varainput{
+    position: relative;
+    font-size:300%;
+    width: 66%;
+    border-radius: 5px;
+    height: 100%;
+}
+header{
+    position: relative;
+    width: 40%;
+    height: 20%;
+    background-color:#b0e3e6;
+    font-size: 240%;
+    text-align: center;
+    background-position: center;
+    margin: auto;
+}
+nav{
+    text-align: center;
+    margin: auto;
+    background-color: #d5e8d4;
+    border-style: solid;
+    border-color: #b3caae;
+}
+main{
+    
+    background-color: #d5e8d4;
+    margin: auto;
+    position:relative;
+    width: 85%;
+    height:90%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #b3caae;
+}
