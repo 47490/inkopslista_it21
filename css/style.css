@@ -1,3 +1,8 @@
+#container{
+    display: flex;
+    flex-direction: column;
+
+}
 #AddButton{
     background-color:#dae8fc;
     position:relative;
@@ -25,7 +30,7 @@ header{
     width: 40%;
     height: 20%;
     background-color:#b0e3e6;
-    font-size: 240%;
+    font-size:larger;
     text-align: center;
     background-position: center;
     margin: auto;
@@ -40,11 +45,42 @@ nav{
 main{
     
     background-color: #d5e8d4;
+    max-height: 60%;
+    overflow-y: scroll;
+    text-align: center;
     margin: auto;
     position:relative;
     width: 85%;
-    height:90%;
     border-style: solid;
     border-width: 2px;
     border-color: #b3caae;
+}
+#varatable{
+    background-color: #fff2cc;
+    font-size: xx-large;
+    text-align: center;
+    border-style: solid;
+    border-color: #e1c676;
+    border-radius: 10px;
+}
+footer{
+    height: 20%;
+    width: 85%;
+    position: relative;
+    background-color: aqua;
+    margin: auto;
+    text-align: center;
+}
+#allabutton{
+    font-size: xx-large;
+    margin-left: auto;
+    
+}
+#valdabutton{
+    font-size: xx-large;
+    margin-right: auto;
+}
+table{
+    margin: auto;
+    width: 80%;
 }
