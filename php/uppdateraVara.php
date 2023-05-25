@@ -48,5 +48,5 @@ if($stmt->rowCount()>0){
 }else{
     $error=new stdClass();
     $error->meddelande=["okänd fel","kunde inte uppdatera vara"];
-    skickaJSON($error,500);
+    skickaJSON($error, 400);
 }

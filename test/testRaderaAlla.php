@@ -16,15 +16,19 @@ try{
     //anropa utan id
     echo "<p class='info'>testa anropa utan id</p>";
     idSaknas($ch);
+
     //anropa med id som inte finns
     echo "<p class='info'>testa anropa med id som inte finns</p>";
     idFinnsInte($ch);
+
     //anropa med ogiltigt id (-1)
     echo "<p class='info'>testa anropa med ogiltigt id(-1)</p>";
     idNegativt($ch);
+
     //anropa med felaktigt id (bokstav)
-    echo "<p class='info>testa anropa med felaktigt id (bokstav)</p>";
+    echo "<p class='info'>testa anropa med felaktigt id (bokstav)</p>";
     idBokstav($ch);
+    
     //anropa med id som finns - ok
     echo "<p class='info'>testa korrekt anrop</p>";
     idOKRaderaVara($ch);

@@ -38,7 +38,7 @@ function editProduct(id){
     let varanode = document.getElementById('varainput');
     let vara =varanode.value;
 
-    if (vara.trim() != ""){
+    if (vara.trim() != "" || vara.length<50){
         let FD = new FormData();
         FD.append("vara", vara);
         FD.append("id", id);

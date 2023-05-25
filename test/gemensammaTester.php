@@ -1,13 +1,19 @@
 <?php
 declare(strict_types=1);
 require_once "../php/funktioner.php";
-function idBokstav($curlHandle){
+function idBokstav($curlHandle, string $vara=null){
+
     //sätt anropsmetod till POST
     curl_setopt($curlHandle, CURLOPT_POST, true);
-
+    
     //lägg till data till anropet
-    $data=['id'=>"id"];
-    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, true);
+    $data = ['id'=>"id"];
+
+    //sätt optional data....
+    if($vara){
+        $data=['vara'=>$vara];
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
+    }
 
     //skicka anrop
     $jsonSvar=curl_exec($curlHandle);
@@ -20,14 +26,21 @@ function idBokstav($curlHandle){
         echo "<p class='error'>fick status=$status istället för förväntat 400</p>";
     }
     }
-function idNegativt($curlHandle){
+function idNegativt($curlHandle, string $vara=null){
+
     //sätt anropsmetod till POST
     curl_setopt($curlHandle, CURLOPT_POST, true);
 
     //lägg till data till anropet
-    $data=['id'=>-1];
-    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, true);
+        $data=['id'=>-1];
 
+    //sätt optional data....
+    if($vara){
+        $data=['vara'=>$vara];
+    }
+
+    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
+    
     //skicka anrop
     $jsonSvar=curl_exec($curlHandle);
     $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
@@ -39,7 +52,7 @@ function idNegativt($curlHandle){
         echo "<p class='error'>fick status=$status istället för förväntat 400</p>";
     }
     }
-function idFinnsInte($curlHandle){
+function idFinnsInte($curlHandle, string $vara=null){
 
     //koppla mot databas och starta transaktion
     $db=connectDB();
@@ -57,6 +70,12 @@ function idFinnsInte($curlHandle){
     $data = ['id'=> $id];
     curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
 
+    //sätt optional data....
+    if($vara){
+        $data=['vara'=>$vara];
+    }
+    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
+
     //skicka anrop
     $jsonSvar=curl_exec($curlHandle);
     $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
@@ -67,9 +86,6 @@ function idFinnsInte($curlHandle){
     }else{
         echo "<p class='error'>fick status=$status istället för 400</p>";
     }
-    // rulla tillbaka alla transaktioner
-
-    $db->rollBack();
     }
 function felMetod($curlHandle){
     //gör anrop och ta hand om terunsträngen
@@ -106,10 +122,15 @@ function kryssaVara(int $id):void{
     $db=connectDB();
     $db->query("UPDATE varor SET checked=1 WHERE id=$id");
     }
-function idSaknas($curlHandle){
+function idSaknas($curlHandle, string $vara=null){
     //sätt anropsmetod till POST
     curl_setopt($curlHandle, CURLOPT_POST, true);
 
+    //sätt optional data....
+    if($vara){
+        $data=['vara'=>$vara];
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
+    }
     //anropa och ta hand om svaret 
     $jsonSvar = curl_exec($curlHandle);
     $status = curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
