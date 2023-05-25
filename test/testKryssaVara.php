@@ -77,10 +77,7 @@ function taBortKryss($curlHandle){
 
     //radera vara
     raderaVara($id);
-
-
-
-}
+    }
 function sattKryss($curlHandle){
         //koppla mot databas
         $db=connectDB();
@@ -114,90 +111,3 @@ function sattKryss($curlHandle){
         //radera post
         raderaVara($id);
     }
-function idFinnsInte($curlHandle){
-
-    //koppla mot databas och starta transaktion
-    $db=connectDB();
-
-    //skapa ny post
-    $id=skapaVara("test");
-
-    //radera den nya posten
-    raderaVara($id);
-
-    //sätt anropsmetod till POST
-    curl_setopt($curlHandle, CURLOPT_POST, true);
-
-    //lägg till data till anropet
-    $data = ['id'=> $id];
-    curl_setopt($curlHandle, CURLPOT_POSTFIELDS, $data);
-
-    //skicka anrop
-    $jsonSvar=curl_exec($curlHandle);
-    $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
-
-    //kontrollera svar och skriv ut reslutat
-    if($status===400){
-        echo "<p class='ok'>förväntat svar 400</p>";
-    }else{
-        echo "<p class='error'>fick status=$status istället för 400</p>";
-    }
-    // rulla tillbaka alla transaktioner
-
-    $db->rollBack();
-    }
-
-function idNegativt($curlHandle){
-    //sätt anropsmetod till POST
-    curl_setopt($curlHandle, CURLOPT_POST, true);
-
-    //lägg till data till anropet
-    $data=['id'=>-1];
-    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, true);
-
-    //skicka anrop
-    $jsonSvar=curl_exec($curlHandle);
-    $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
-
-    //kontrollera svar och skriv ut resultatet
-    if($status===400){
-        echo "<p class='ok'>förväntat svar 400</p>";
-    }else{
-        echo "<p class='error'>fick status=$status istället för förväntat 400</p>";
-    }
-    }
-    function idBokstav($curlHandle){
-        //sätt anropsmetod till POST
-        curl_setopt($curlHandle, CURLOPT_POST, true);
-
-        //lägg till data till anropet
-        $data=['id'=>"id"];
-        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, true);
-
-        //skicka anrop
-        $jsonSvar=curl_exec($curlHandle);
-        $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
-
-        //kontrollera svar och skriv ut resultatet
-        if($status===400){
-            echo "<p class='ok'>förväntat svar 400</p>";
-        }else{
-            echo "<p class='error'>fick status=$status istället för förväntat 400</p>";
-        }
-    }
-function idSaknas($curlHandle){
-    //sätt anropsmetod till POST
-    curl_setopt($curlHandle, CURLOPT_POST, true);
-
-    //anropa och ta hand om svaret 
-    $jsonSvar = curl_exec($curlHandle);
-    $status = curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
-
-    //kontrollera svar och skriv ut text
-    if($status===400){
-        echo "<p class='ok'> svar 400</p>";
-    }else{
-        echo "<p class='error'>svar med status=$status istället för 400</p>";
-        }
-    }   
-
