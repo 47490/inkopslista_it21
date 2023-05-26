@@ -2,7 +2,7 @@ function saveProduct(){
     let vara = document.getElementById('varainput');
     let varatext=vara.value;
 
-    if (varatext.trim()!= ""){
+    if (varatext.trim()!= "" && varatext.length<50){
         let FD = new FormData();
         FD.append("vara", varatext);
 
@@ -38,7 +38,7 @@ function editProduct(id){
     let varanode = document.getElementById('varainput');
     let vara =varanode.value;
 
-    if (vara.trim() != "" || vara.length<50){
+    if (vara.trim() != "" && vara.length<50){
         let FD = new FormData();
         FD.append("vara", vara);
         FD.append("id", id);

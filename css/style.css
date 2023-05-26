@@ -1,6 +1,10 @@
+body{
+    background-color: rgb(255, 225, 229);
+}
 #container{
-    display: flex;
-    flex-direction: column;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 
 }
 #AddButton{
@@ -12,8 +16,7 @@
     border-color: #91add2;
     border-radius: 10px;
     text-align: center;
-    font-size:300%;
-    height: 10%;    
+    font-size:300%;  
 }
 #AddButton:active {
     transform: translateY(2px);
@@ -26,30 +29,28 @@
     height: 100%;
 }
 header{
-    position: relative;
-    width: 40%;
-    height: 20%;
+    width: 85%;
     background-color:#b0e3e6;
     font-size:larger;
     text-align: center;
-    background-position: center;
     margin: auto;
 }
 nav{
     text-align: center;
-    margin: auto;
+    display: flex;
+    justify-content: space-between;
     background-color: #d5e8d4;
     border-style: solid;
     border-color: #b3caae;
+    border-width: 2px;
+    border-color: #b3caae;
 }
 main{
-    
+
     background-color: #d5e8d4;
-    max-height: 60%;
     overflow-y: scroll;
     text-align: center;
-    margin: auto;
-    position:relative;
+    margin: 0 auto;
     width: 85%;
     border-style: solid;
     border-width: 2px;
@@ -64,23 +65,41 @@ main{
     border-radius: 10px;
 }
 footer{
-    height: 20%;
     width: 85%;
-    position: relative;
-    background-color: aqua;
     margin: auto;
+    display: flex;
+    justify-content: space-around;
     text-align: center;
 }
-#allabutton{
-    font-size: xx-large;
-    margin-left: auto;
-    
-}
-#valdabutton{
-    font-size: xx-large;
-    margin-right: auto;
-}
+
 table{
     margin: auto;
     width: 80%;
+}
+#allabutton{
+    font-size: 300%;
+    background-color: rgb(138, 0, 0);
+    border-color:rgb(33, 0, 0);
+    color: rgb(202, 202, 202);
+    border-radius: 15px;
+    border-width: 15px;
+}
+#valdabutton{
+    font-size: 300%;
+    background-color: rgb(52, 0, 0);
+    color: darkgrey;
+    border-radius: 15px;
+    border-width: 15px;
+    
+}
+#allabutton:active {
+    transform: translateY(4px);
+    background-color: black;
+    color: darkgrey;
+    
+}
+#valdabutton:active {
+    transform: translateY(4px);
+    background-color: black;
+    color: grey;
 }
