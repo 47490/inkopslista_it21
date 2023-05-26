@@ -9,3 +9,8 @@
 .info{
     font-size: larger;
 }
+
+#done{
+    color:blueviolet;
+    background-color: black;
+}

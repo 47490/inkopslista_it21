@@ -96,8 +96,7 @@ function deleteAllProduct(){
 
         fetch(serverurl+"raderaAllaVaror.php",
         {
-            method: 'POST',
-            body: FD
+            method: 'POST'
         })
         .then(function (response){
             if (response.status==200){
