@@ -21,9 +21,9 @@ require_once "gemensammaTester.php";
     <?php require_once "testKryssaVara.php" ?>
     <h1 id="done">radera alla varor</h1>
     <?php require_once "testRaderaAlla.php" ?>
-    <h1>radera valda varor</h1>
+    <h1 id="done">radera valda varor</h1>
     <?php require_once "testRaderaValda.php" ?>
-    <h1>radera enskild vara</h1>
+    <h1 id="done">radera enskild vara</h1>
     <?php require_once "testRaderaVara.php" ?>
     <h1 id="done">spara vara</h1>
     <?php require_once "testSparaVara.php" ?>

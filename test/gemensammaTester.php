@@ -1,6 +1,22 @@
 <?php
 declare(strict_types=1);
 require_once "../php/funktioner.php";
+function hamtaAllaVaror(): array
+{
+    $db = connectDB();
+    $stmt = $db->query("SELECT * FROM varor");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+function aterstallDB($varor): void
+{
+    $db = connectDB();
+    $sql = "INSERT INTO varor (id, namn, checked) VALUES (:id, :namn, :checked)";
+    $stmt = $db->prepare($sql);
+
+    foreach ($varor as $value) {
+        $stmt->execute($value);
+    }
+}
 function idBokstav($curlHandle, string $vara=null){
 
     //sätt anropsmetod till POST
